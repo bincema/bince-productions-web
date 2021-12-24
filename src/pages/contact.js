@@ -1,22 +1,16 @@
 import * as React from "react"
-import { ParallaxProvider } from "react-scroll-parallax"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
-import HeroSlider from '../components/HeroSlider'
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 
-const IndexPage = () => (
+const AboutPage = () => (
   <Layout>
-    <Seo title="Home" />
-    <ParallaxProvider>
-      <HeroSlider />
-    </ParallaxProvider>
+    <Seo title="About" />
     <div className="page">
       <section className="page-section content-wrapper">
-
         <AccentHeader>
-          Hello people!
+          Contact Page!
         </AccentHeader>
         <p>Nothing here yet</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quos facere, enim dicta optio porro fugiat. Nihil voluptatibus optio ullam eaque dolorem enim, laborum maiores rem nemo! Perferendis, quae fuga!</p>
@@ -33,4 +27,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default AboutPage

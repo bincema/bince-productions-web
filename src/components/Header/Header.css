@@ -1,0 +1,89 @@
+.top-header {
+  background: transparent;
+  padding-block: 26px;
+  
+  color: #fff;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+.header-layout {
+  padding-inline: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  grid-template-rows: min-content;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--bg-color-secondary);
+
+  padding-block: 18px;
+  margin-left: -24px;
+  padding-left: 24px;
+  padding-right: 12px;
+
+  position: relative;
+}
+
+.header-logo-wrapper:before,
+.header-logo-wrapper:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.header-logo-wrapper:after {
+  width: 90px;
+  right: -90px;
+  background: var(--bg-color-secondary);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.header-logo-wrapper:before {
+  width: 100px;
+  right: -100px;
+  background: var(--color-accent);
+  clip-path: polygon(0 0, 100% 0%, 10% 100%, 0% 100%);
+}
+
+.header-logo-image {
+  min-width: 35px;
+  margin-right: 12px;
+  transform: translateY(6px)
+}
+
+.header-logo-text {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-logo-title {
+  font-size: 1.5rem;
+}
+
+.header-logo-tagline {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-left: 2px;
+  margin-top: 3px;
+}
+
+.tagline-slash {
+  color: var(--color-accent);
+  display: inline-block;
+  margin-inline: 5px;
+}
+
+
+
+.header-logo svg {
+  width: 100%;
+}

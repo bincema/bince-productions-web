@@ -1,0 +1,59 @@
+:root {
+  --font-primary: 'Oswald', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+
+  --font-color-primary: rgb(255, 255, 255);
+  --font-color-secondary: rgb(182, 182, 182);
+
+  --bg-color-primary: rgb(22, 22, 22);
+  --bg-color-secondary: rgb(43, 43, 43);
+
+  --color-accent: rgb(236, 142, 0);
+
+  --gutter-sm: 16px;
+  --gutter-md: 32px;
+  --gutter-lg: 48px;
+  --gutter-xl: 64px;
+}
+
+body {
+  background: var(--bg-color-primary);
+  font-family: var(--font-secondary);
+  color: var(--font-color-secondary);
+  /* padding: 0; */
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-primary);
+  color: var(--font-color-primary);
+}
+
+h1 {
+  position: relative;
+}
+
+p {
+  line-height: 170%;
+}
+
+.page {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-block: 60px;
+  background: var(--bg-color-primary);
+}
+
+.page-section {
+  min-height: 90vh;
+}
+
+.content-wrapper {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.parallax-container {
+  position: relative;
+  z-index: 0;
+}

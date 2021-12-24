@@ -1,0 +1,39 @@
+button {
+  background: none;
+  font-family: iherit;
+  position: relative;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn {
+  --btn-theme: var(--color-accent);
+  color: #fff;
+  padding: 18px 32px;
+  
+  background: var(--btn-theme);
+  border: none;
+}
+
+
+.btn:before,
+.btn:after {
+  position: absolute;
+  top: 0;
+  content: " ";
+  height: 100%;
+  width: 20%;
+  background: var(--btn-theme);
+}
+
+.btn:before {
+  left: -20%;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.btn:after {
+  right: -20%;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}

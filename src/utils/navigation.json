@@ -1,0 +1,25 @@
+{
+  "nav-items": [
+    {
+      "label": "Home",
+      "path": "/",
+      "renderAs": "menu-item",
+      "includeInNav": true,
+      "footerSection": "quick-links"
+    },
+    {
+      "label": "About",
+      "path": "/about",
+      "renderAs": "menu-item",
+      "includeInNav": true,
+      "footerSection": "quick-links"
+    },
+    {
+      "label": "Contact",
+      "path": "/contact",
+      "renderAs": "menu-item",
+      "includeInNav": true,
+      "footerSection": "quick-links"
+    }
+  ]
+}
