@@ -1,16 +1,35 @@
 import React, { useEffect, useState, useRef } from "react"
-import { Link } from 'gatsby'
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
-import classnames from 'classnames'
-import { RiCameraLensFill } from 'react-icons/ri'
-import navigation from '../../utils/navigation.json'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import { PrismicLink } from '@prismicio/react'
 
-import '../../assets/css/_nav.css'
+import { RiCameraLensFill } from 'react-icons/ri'
+
+import './Nav.css'
 
 const Nav = () => {
+  const queryData = useStaticQuery(graphql`
+    {
+      prismicPrimaryNavigation {
+        data {
+          primary_navigation {
+            link {
+              url
+              uid
+              link_type
+            }
+            link_label {
+              text
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { primary_navigation: navItems } = queryData.prismicPrimaryNavigation.data
+
   const [openDrawer, toggleDrawer] = useState(false);
   const drawerRef = useRef(null);
-
 
   useEffect(() => {
     /* Close the drawer when the user clicks outside of it */
@@ -31,52 +50,24 @@ const Nav = () => {
       <nav>
 
         <button className="mobile-toggle" onClick={() => toggleDrawer(true)}>
-          <RiCameraLensFill />
+          <RiCameraLensFill className="icon" />
         </button>
 
-        <ul ref={drawerRef} className={
-          openDrawer ? 'open-drawer' : null
-        }>
-
+        <ul ref={drawerRef} className={`nav-list ${openDrawer ? 'open-drawer' : null}`}>
           {
             // eslint-disable-next-line array-callback-return
-            navigation["nav-items"].map((item, i) => {
-
-              // eslint-disable-next-line array-callback-return
-              if (!item.includeInNav) return
-
-              if (item.renderAs === 'menu-item') {
-                return (
-                  <li key={i}>
-                    <Link
-                      // Bellow for use with ANiLink transition plugin
-                      // color="#FFA90C"
-                      // paintDrip
-                      onClick={() => toggleDrawer(false)}
-                      to={item.path}
-                      activeClassName="active"
-                      className={classnames(item.render === "button" ? "btn btn-small" : null)}>
-                      {item.label}
-                    </Link>
-                  </li>
-                )
-              }
-
-              if (item.renderAs === 'button') {
-                return (
-                  <li key={i}>
-                    <a
-                      onClick={() => toggleDrawer(false)}
-                      className="btn btn-small"
-                      href={item.path}
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      {item.label}
-                    </a>
-                  </li>
-                )
-              }
-            })}
+            navItems.map((item, i) => (
+              <li key={i} className="nav-item">
+                <PrismicLink
+                  field={item.link}
+                  onClick={() => toggleDrawer(false)}
+                  activeClassName="active"
+                  className="nav-link"
+                >
+                  {item.link_label.text}
+                </PrismicLink>
+              </li>
+            ))}
         </ul>
       </nav>
     </div>

@@ -1,0 +1,82 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID"
+      }
+    },
+    "max_columns_count" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Max columns count"
+      }
+    },
+    "page_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Page Title"
+      }
+    },
+    "page_text" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Page Text"
+      }
+    },
+    "gallery" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "gallery_image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : null,
+                "height" : null
+              },
+              "thumbnails" : [ {
+                "name" : "thumbnail",
+                "width" : 300,
+                "height" : null
+              } ],
+              "label" : "Gallery Image"
+            }
+          },
+          "image_title" : {
+            "type" : "StructuredText",
+            "config" : {
+              "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+              "label" : "Image Title"
+            }
+          },
+          "image_date" : {
+            "type" : "Date",
+            "config" : {
+              "label" : "Image Date"
+            }
+          },
+          "include_in_portfolio": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "No",
+              "placeholder_true": "Yes",
+              "default_value": false,
+              "label": "Include in Portfolio"
+            }
+          },
+          "category" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "food", "cosmetics", "drinks", "watches", "jewellery" ],
+              "label" : "Category"
+            }
+          }
+        },
+        "label" : "Gallery"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "primary_navigation",
+    "name": "Primary Navigation",
+    "repeatable": false,
+    "value": "primary_navigation.json"
+  },
+  {
+    "id": "homepage",
+    "name": "Homepage",
+    "repeatable": false,
+    "value": "homepage.json"
+  },
+  {
+    "id": "gallery_page",
+    "name": "Gallery Page",
+    "repeatable": true,
+    "value": "gallery_page.json"
+  },
+  {
+    "id": "single_work_page",
+    "name": "Single Work Page",
+    "repeatable": true,
+    "value": "single_work_page.json"
+  }
+]

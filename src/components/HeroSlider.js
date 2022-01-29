@@ -12,25 +12,12 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 import '../assets/css/_hero-slider.css'
 
 
-const HeroSlider = () => {
-  const { allFile } = useStaticQuery(
-    graphql`
-      query galleryImages {
-        allFile(filter: {sourceInstanceName: {eq: "gallery"}}) {
-          edges {
-            node {
-              childrenImageSharp {
-                gatsbyImageData(transformOptions: {
-                  fit: INSIDE
-                })
-              }
-            }
-          }
-        }
-      }
-    `)
+const HeroSlider = ({ sliderData }) => {
 
-  let totalSlides = allFile.edges.length
+  console.log(sliderData)
+
+
+  let totalSlides = sliderData.length
 
   return (
     <CarouselProvider
@@ -46,8 +33,8 @@ const HeroSlider = () => {
           classNameTray='hero-slider-tray'
           classNameTrayWrap='hero-slider-tray-wrap'
         >
-          {allFile.edges.map((img, i) => {
-            const currImg = getImage(img.node.childrenImageSharp[0])
+          {sliderData.map((img, i) => {
+            const currImg = getImage(img.slide)
 
             return (
               <Slide className="hero-slide" index={i} key={i}>

@@ -1,11 +1,28 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Bince Productions`,
+    description: `Best videographer in UK`,
+    author: `@jamborski-dev`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        linkResolver: require('./src/linkResolver').linkResolver,
+        schemas: {
+          "homepage": require('./custom_types/homepage.json'),
+          "primary_navigation": require('./custom_types/primary_navigation.json'),
+          "gallery_page": require('./custom_types/gallery_page.json'),
+          "single_work_page": require('./custom_types/single_work_page.json'),
+        }
+      },
+    },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

@@ -1,0 +1,32 @@
+.gallery-nav {
+
+}
+
+.gallery-nav__list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.gallery-nav__list-item {
+  margin-right: 1.5rem;
+}
+
+.gallery-nav__list-item:last-child {
+  margin-right: 0;
+}
+
+.gallery-nav__list-item-btn {
+  font: inherit;
+  background: none;
+  color: inherit;
+  border: none;
+  text-transform: capitalize;
+}
+
+.gallery-nav__list-item-btn::before {
+  content: "/ ";
+  font-weight: 900;
+  color: var(--color-accent);
+}

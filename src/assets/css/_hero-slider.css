@@ -1,14 +1,6 @@
-
-
 .hero-slider {
-  height: 95vh;
+  height: 100vh;
 }
-
-/* carousel__slider-tray-wrapper  */
-/* .carousel__slider-tray-wrap--horizontal,
-.carousel__slider-tray--horizontal {
-  height: 100%; 
-} */
 
 .hero-slider-tray,
 .hero-slider-tray-wrap {

@@ -1,11 +1,23 @@
 import React from "react"
 import Nav from './Nav'
 import BinceEmblem from '../../assets/svg/bince-emblem.svg'
+import Animated from 'react-mount-animation'
+import { useAppContext } from '../../hooks/useAppContext'
 import './Header.css'
 
 const Header = () => {
+  const { headerVisible } = useAppContext()
+
   return (
-    <header className="top-header">
+    <Animated.header
+      className="top-header"
+      show={headerVisible}
+      mountAnim={` 
+          0% {opacity: 0}
+          100% {opacity: 1}
+      `}
+      time={0.3}
+    >
       <div className="content-box">
         <div className="header-layout">
 
@@ -25,7 +37,7 @@ const Header = () => {
           <Nav />
         </div>
       </div>
-    </header>
+    </Animated.header>
   )
 }
 
