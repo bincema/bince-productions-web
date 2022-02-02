@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { graphql } from 'gatsby'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import Layout from "../components/Layout/Layout"
+import Seo from "../components/Seo/Seo"
 import AccentHeader from '../components/AccentHeader/AccentHeader'
-import GalleryNav from '../components/GalleryNav/GalleryNav'
-import GalleryCollection from '../components/GalleryCollection/GalleryCollection'
+import CollectionNav from '../components/CollectionNav/CollectionNav'
+import PhotoCollection from '../components/PhotoCollection/PhotoCollection'
 import { GalleryProvider } from "../context/GalleryContext"
-
-const { log, error } = console
 
 const GalleryPage = ({ data }) => {
   const { gallery, page_title, page_text, max_columns_count } = data.prismicGalleryPage.data
 
   return (
     <Layout>
-      <Seo title="Gallery Page" />
+      <Seo title="Photo" />
       <div className="page no-hero">
 
         <GalleryProvider items={gallery} maxColumns={max_columns_count}>
@@ -25,7 +24,7 @@ const GalleryPage = ({ data }) => {
             <AccentHeader>
               {page_title.text}
             </AccentHeader>
-            <GalleryNav
+            <CollectionNav
               portfolio={true}
               services={true}
             />
@@ -33,7 +32,7 @@ const GalleryPage = ({ data }) => {
 
           {/* Main gallery collection */}
           <section>
-            <GalleryCollection />
+            <PhotoCollection />
           </section>
 
           {/* Page text content */}
@@ -47,11 +46,12 @@ const GalleryPage = ({ data }) => {
   )
 }
 
-export default GalleryPage
+export default withPrismicPreview(GalleryPage)
 
 export const query = graphql`
-  query GalleryQuery($id: String) {
-    prismicGalleryPage(id: { eq: $id }) {
+  query GalleryQuery {
+    prismicGalleryPage {
+      _previewable
       id
       data {
         page_title {

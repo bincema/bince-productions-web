@@ -1,19 +1,32 @@
 import React from 'react'
+import './Video.css'
+import Vimeo from '@u-wave/react-vimeo'
 
-const Video = () => {
+const Video = ({ className, embedLink = '', id = '' }) => {
+
+  const videoLink = embedLink !== '' ? embedLink : `https://player.vimeo.com/video/${id}`
+
   return (
-    <video
-      className="video slideItem"
+    <Vimeo
+      className={className}
+      video={videoLink}
+      autoplay
+      width="100%"
+      height="100%"
+      controls={false}
       muted
-    // poster=""
-    >
-      <source type="video/mp4" src="" />
-      {/* source for WEBM & OGG formats */}
-
-      {/* poster image */}
-      {/* <img src="" /> */}
-    </video>
+      background
+      responsive
+      showTitle={false}
+      showByline={false}
+      loop
+    />
   )
 }
 
 export default Video
+
+Video.defaultProps = {
+  embedLink: '',
+  id: '',
+}

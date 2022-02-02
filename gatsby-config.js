@@ -11,6 +11,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+      },
+    },
+    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
@@ -20,6 +26,10 @@ module.exports = {
           "primary_navigation": require('./custom_types/primary_navigation.json'),
           "gallery_page": require('./custom_types/gallery_page.json'),
           "single_work_page": require('./custom_types/single_work_page.json'),
+          "blog_listing": require('./custom_types/blog_listing.json'),
+          "blog_post": require('./custom_types/blog_post.json'),
+          "video_gallery": require('./custom_types/video_gallery.json'),
+          "video": require('./custom_types/video.json'),
         }
       },
     },
@@ -78,7 +88,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/svg/bince-emblem.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

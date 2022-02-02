@@ -3,13 +3,15 @@
 }
 .accent-header-text {
   text-transform: uppercase;
+  text-align: right;
 }
 .accent-header-icon {
   --size: 100px;
   width: var(--size);
   position: absolute;
 
-  left: calc((var(--size) + 30px) * -1);
-  top: 50%;
+  /* left: calc((var(--size) + 30px) * -1); */
+  left: 0;
+  top: 0;
   transform: translateY(-55%);
 }

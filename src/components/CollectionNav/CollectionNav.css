@@ -1,5 +1,7 @@
-.gallery-nav {
+/* TODO: add hover */
 
+.gallery-nav {
+  margin-bottom: 50px;
 }
 
 .gallery-nav__list {
@@ -7,14 +9,16 @@
   flex-flow: row wrap;
   list-style-type: none;
   padding: 0;
+  justify-content: flex-end;
 }
 
 .gallery-nav__list-item {
-  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 12px;
 }
 
-.gallery-nav__list-item:last-child {
-  margin-right: 0;
+.gallery-nav__list-item:first-child {
+  margin-left: 0;
 }
 
 .gallery-nav__list-item-btn {
@@ -23,6 +27,15 @@
   color: inherit;
   border: none;
   text-transform: capitalize;
+  transition: color .2s, transform .1s;
+}
+
+.gallery-nav__list-item-btn:hover {
+  color: #fff;
+}
+
+.gallery-nav__list-item-btn:active {
+  transform: translateY(2px);
 }
 
 .gallery-nav__list-item-btn::before {

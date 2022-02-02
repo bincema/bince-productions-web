@@ -50,12 +50,13 @@ img {
 }
 
 .page-section {
-  min-height: 90vh;
+  /* min-height: 90vh; */
 }
 
 .content-wrapper {
   max-width: 900px;
-  margin-inline: auto;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .parallax-container {
@@ -72,9 +73,15 @@ img {
 }
 
 .no-hero {
-  padding-top: 250px;
+  padding-top: 190px;
 }
 
 .disable-scroll {
   overflow: hidden;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-accent);
+  font-weight: 700;
 }

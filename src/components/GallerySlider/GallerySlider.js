@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React from 'react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { GrFormNext, GrFormPrevious, GrFormClose } from 'react-icons/gr'
-import { useGalleryContext } from '../../hooks/useGalleryContext'
 import { RiShareFill } from 'react-icons/ri'
 import {
   CarouselProvider,

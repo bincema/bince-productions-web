@@ -4,10 +4,21 @@ exports.linkResolver = (doc) => {
     return `/${doc.uid}`
   }
 
-  // // URL for a product type
-  // if (doc.type === 'video_page') {
-  //   return `/video/${doc.uid}`
-  // }
+  if (doc.type === 'video_gallery') {
+    return `/${doc.uid}`
+  }
+
+  if (doc.type === 'video') {
+    return `/video/${doc.uid}`
+  }
+
+  if (doc.type === 'blog_post') {
+    return `/blog/${doc.uid}`
+  }
+
+  if (doc.type === 'blog_listing') {
+    return `/blog`
+  }
 
   // Backup for all other types
   return '/'

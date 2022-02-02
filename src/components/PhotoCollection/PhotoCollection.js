@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import './GalleryCollection.css'
+import './PhotoCollection.css'
 
 import Animated from "react-mount-animation"
 
@@ -9,8 +9,7 @@ import { useAppContext } from '../../hooks/useAppContext'
 
 import GallerySlider from '../GallerySlider/GallerySlider'
 
-const GalleryCollection = () => {
-
+const PhotoCollection = () => {
   const { setEnableScroll, setHeaderVisible } = useAppContext()
   const {
     filteredItems: galleryItems,
@@ -31,7 +30,9 @@ const GalleryCollection = () => {
     setHeaderVisible(false)
   }
 
+  // TODO: move to GallerySlider to avoid props drilling
   const handleClose = () => {
+    // TODO: on close clear URL params
     setIsSliderMounted(false)
     setCurrentIndex(0)
     setEnableScroll(true)
@@ -39,16 +40,16 @@ const GalleryCollection = () => {
   }
 
   return (
-    <div className="gallery-collection">
-      <ul className={`gallery-collection__list columns-${columns}`}>
+    <div className="collection">
+      <ul className={`collection__list columns-${columns}`}>
         {galleryItems && galleryItems.map((item, i) => {
           const image = getImage(item.gallery_image)
           const title = item.image_title.text
           return (
-            <li className="gallery-collection__list-item" key={i}>
+            <li className="collection__list-item" key={i}>
               <GatsbyImage image={image} alt={title} />
-              <div onClick={() => handleOpenImage(i)} className="gallery-collection__list-item-overlay"></div>
-              <span className="gallery-collection__list-item-title">{title}</span>
+              <div onClick={() => handleOpenImage(i)} className="collection__list-item-overlay"></div>
+              <span className="collection__list-item-title">{title}</span>
             </li>
           )
         })}
@@ -73,4 +74,4 @@ const GalleryCollection = () => {
   )
 }
 
-export default GalleryCollection
+export default PhotoCollection

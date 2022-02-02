@@ -13,13 +13,13 @@
   },
   {
     "id": "gallery_page",
-    "name": "Gallery Page",
+    "name": "Photo Gallery Page",
     "repeatable": true,
     "value": "gallery_page.json"
   },
   {
     "id": "single_work_page",
-    "name": "Single Work Page",
+    "name": "Single Video Page",
     "repeatable": true,
     "value": "single_work_page.json"
   }

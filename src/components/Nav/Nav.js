@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { PrismicLink } from '@prismicio/react'
 
 import { RiCameraLensFill } from 'react-icons/ri'

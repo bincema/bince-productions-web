@@ -1,5 +1,5 @@
 import React from "react"
-import Nav from './Nav'
+import Nav from '../Nav/Nav'
 import BinceEmblem from '../../assets/svg/bince-emblem.svg'
 import Animated from 'react-mount-animation'
 import { useAppContext } from '../../hooks/useAppContext'

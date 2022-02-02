@@ -67,11 +67,11 @@
 .primary-nav a:hover:before {
   display: block;
   position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60%;
-  height: 2px;
-  border-radius: 3px;
+  bottom: -8px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 10px;
   background: var(--color-accent);
   content: " ";
 }
@@ -99,6 +99,12 @@
   .primary-nav .nav-item {
     margin-bottom: 24px;
     margin-left: 0;
+  }
+
+  .primary-nav a.active:before, 
+  .primary-nav a:hover:before {
+    top: 50%;
+    left: -12px;
   }
 }
 
@@ -132,4 +138,15 @@
 
 .open-drawer {
   transform: translateX(0) !important;
+}
+
+@media screen and (max-width: 450px) {
+  .primary-nav {
+    background: none;
+  }
+  
+  .primary-nav:before,
+  .primary-nav:after {
+    display: none;
+  }
 }

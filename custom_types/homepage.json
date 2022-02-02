@@ -1,55 +1,66 @@
 {
-  "Main" : {
-    "page_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
-        "label" : "Page Title"
+  "Main": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Page Title"
       }
     },
-    "primary_heading" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Primary Heading"
+    "primary_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Primary Heading"
       }
     },
-    "text_content" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
-        "allowTargetBlank" : true,
-        "label" : "Text Content",
-        "placeholder" : "Your text content comes here"
+    "text_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "allowTargetBlank": true,
+        "label": "Text Content",
+        "placeholder": "Your text content comes here"
       }
     },
-    "hero_slider" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "slide" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : { },
-              "thumbnails" : [ ],
-              "label" : "Slide"
+    "hero_slider": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image / Video Poster"
             }
           },
-          "slide_title" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading2",
-              "label" : "Slide Title"
+          "slide_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Slide Title"
             }
           },
-          "video_link" : {
-            "type" : "Embed",
-            "config" : {
-              "label" : "Video Link"
+          "content_type": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "Image",
+              "placeholder_true": "Video",
+              "default_value": false,
+              "label": "Content Type"
+            }
+          },
+          "video_link": {
+            "type": "Link",
+            "config": {
+              "label": "Video Link",
+              "placeholder": "Link from generated vimeo iframe code",
+              "select": "web"
             }
           }
         },
-        "label" : "Hero Slider"
+        "label": "Hero Slider"
       }
     }
   }

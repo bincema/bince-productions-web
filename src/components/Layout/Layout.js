@@ -2,12 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { ParallaxProvider } from 'react-scroll-parallax'
 
-import Header from "./Header/Header"
-import Footer from "./Footer/Footer"
-import '../assets/css/normalize.css'
-import '../assets/css/global.css'
-import '../assets/css/_button.css'
-import { useAppContext } from "../hooks/useAppContext"
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
+import '../../assets/css/normalize.css'
+import '../../assets/css/global.css'
+import '../../assets/css/_button.css'
+import { useAppContext } from "../../hooks/useAppContext"
 
 const Layout = ({ children }) => {
   const { enableScroll } = useAppContext()

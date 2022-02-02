@@ -1,5 +1,5 @@
 import React from 'react';
-import './GalleryNav.css';
+import './CollectionNav.css';
 import { useGalleryContext } from '../../hooks/useGalleryContext'
 
 const GalleryNav = ({ portfolio, services }) => {

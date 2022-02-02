@@ -9,7 +9,7 @@ const AccentHeader = ({ children }) => {
       <h1 className="accent-header-text">
         {children}
       </h1>
-      <Icon className="accent-header-icon" />
+      {/* <Icon className="accent-header-icon" /> */}
     </header>
   )
 }
