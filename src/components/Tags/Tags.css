@@ -1,0 +1,38 @@
+.tags {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+
+  --g1: linear-gradient(-30deg, #f64f59, #c471ed, #12c2e9);
+  --g2: linear-gradient(-30deg, #f79d00, #64f38c);
+  --g3: linear-gradient(-30deg, #f7ff00, #db36a4);
+  --g4: linear-gradient(-30deg, #1d4350, #a43931);
+  --g5: linear-gradient(-30deg, #16bffd, #cb3066);
+  --g6: linear-gradient(-30deg, #eecda3, #ef629f);
+  --g7: linear-gradient(-30deg, #fc4a1a, #f7b733);
+  
+}
+  
+.video-tags {
+  justify-content: flex-end;
+}
+
+.tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  color: #ddd;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+  background: #444;
+
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+
+.tag:not(:last-child) {
+  margin-right: 6px;
+}
+.video-tags .tag:not(:first-child) {
+  margin-left: 6px;
+}

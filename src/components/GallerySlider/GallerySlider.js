@@ -24,7 +24,7 @@ const GallerySlider = ({ sliderData, handleClose, currentIndex }) => {
       isIntrinsicHeight
       // isPlaying
       currentSlide={currentIndex}
-    // infinite
+      infinite
     >
       <Slider
         className="carousel--slider slider"

@@ -1,0 +1,41 @@
+.loader-text {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 5;
+  font-size: 0.8rem;
+  text-align: left;
+  opacity: 0.5;
+}
+
+.loader-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+  max-height: 30%;
+
+  animation-name: emblemPulse;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.66,.11,.54,.94);
+}
+
+.loader-dot {
+  animation-name: fadeInDot;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeInDot {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes emblemPulse {
+  0% { opacity: 0.05; }
+  100% { opacity: 0.2; }
+}

@@ -41,45 +41,6 @@ img {
   height: 100%;
 }
 
-.page {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  padding-block: 60px;
-  background: var(--bg-color-primary);
-}
-
-.page-section {
-  /* min-height: 90vh; */
-}
-
-.content-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.parallax-container {
-  position: relative;
-  z-index: 0;
-}
-
-.content-page {
-  padding-top: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.no-hero {
-  padding-top: 190px;
-}
-
-.disable-scroll {
-  overflow: hidden;
-}
-
 .link {
   text-decoration: none;
   color: var(--color-accent);

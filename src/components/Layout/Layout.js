@@ -6,7 +6,9 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import '../../assets/css/normalize.css'
 import '../../assets/css/global.css'
-import '../../assets/css/_button.css'
+import '../../assets/css/button.css'
+
+import './Layout.css'
 import { useAppContext } from "../../hooks/useAppContext"
 
 const Layout = ({ children }) => {

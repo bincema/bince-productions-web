@@ -16,10 +16,10 @@ TODO collections
   - animate sorting
   - show poster and/or loader before video is loaded [done] (poster could still be as background with low opacity)
     
-        TODO single video page
-          - source content  
-          - set styles
-          - add pagination buttons
+TODO single video page
+  - source content  [done]
+  - set styles [done]
+  - add pagination buttons [in-progress]
 
 TODO slider
   - intersection observer (change slider opacity on scroll)
@@ -34,9 +34,9 @@ TODO SEO
   - add SEO fields in every custom type
 
 TODO general
-  - install sass
+  - install sass [done]
   - introduce OOCSS methodology
 
 
 TODO issues
-  - homepage slider is not spanning entire width on some slides (previous to video slide)
+  - homepage slider is not spanning entire width on some slides (previous to video slide) [done]

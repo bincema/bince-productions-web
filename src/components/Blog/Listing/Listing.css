@@ -23,22 +23,4 @@
   font-size: 2rem;
 }
 
-.tags {
-  margin: 20px 0; 
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.tag {
-  background: #ddd;
-  color: #444;
-  padding: 4px 7px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
-.tag:not(:last-child) {
-  margin-right: 6px;
-}
-
 .post-url {}

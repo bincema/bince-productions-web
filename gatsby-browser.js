@@ -27,7 +27,7 @@ export const wrapRootElement = ({ element }) => (
               componentResolver: componentResolverFromMap({
                 "homepage": IndexTemplate,
                 "gallery_page": GalleryTemplate,
-                // "video": VideoTemplate,
+                "video": VideoTemplate,
                 "video_gallery": VideoGalleryTemplate,
               }),
             },

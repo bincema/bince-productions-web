@@ -1,5 +1,6 @@
 import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import Tags from '../../Tags/Tags';
 
 import './Listing.css';
 
@@ -25,11 +26,7 @@ const Listing = ({ posts }) => {
             </h3>
 
             {/* tags */}
-            <div className="tags">
-              {post.tags.map((tag, i) => (
-                <span className="tag">{tag}</span>
-              ))}
-            </div>
+            <Tags tags={post.tags} />
 
             {/* link */}
             <a href={post.url} className="link post-url">Read more</a>

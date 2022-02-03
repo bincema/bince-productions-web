@@ -51,7 +51,11 @@ const HeroSlider = ({ sliderData }) => {
 
               return (
                 <Slide className="hero-slide" index={i} key={i} style={posterStyles}>
-                  <Video className="vimeo-embed-player" embedLink={video_link.url} />
+                  <Video
+                    className="vimeo-embed-player"
+                    embedLink={video_link.url}
+                    autoplay
+                  />
                 </Slide>
               )
             }

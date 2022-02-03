@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
@@ -6,29 +6,57 @@ import Layout from "../components/Layout/Layout"
 import Seo from "../components/Seo/Seo"
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 import Video from '../components/Video/Video'
+import Tags from '../components/Tags/Tags'
+import Loader from '../components/Loader/Loader'
+import BinceEmblem from '../assets/svg/bince-emblem.svg'
+import Pagination from '../components/Pagination/Pagination'
 
 const { log, error } = console
 
 const VideoPage = ({ data }) => {
-  const { title, description, vimeo_video_id } = data.prismicVideo.data
+  const { title, description, vimeo_video_id, date } = data.prismicVideo.data
+  const { tags } = data.prismicVideo
+
+  const [isVideoLoaded, setVideoLoaded] = useState(false)
 
   return (
     <Layout>
-      <Seo title="Single Video Page" />
-      <div className="page no-hero">
+      <Seo title={title.text} />
+      <article className="page no-hero">
 
         <section className="content-wrapper">
           <AccentHeader>
-            {title.text}
+            <span className="video-date">{date}</span> {title.text}
           </AccentHeader>
+
+          <Tags className="video-tags" tags={tags} />
+
         </section>
 
         {/* Video */}
         <section>
-          <Video className="vimeo-embed-player" id={vimeo_video_id} />
+          <div className="video-container">
+            <Loader isLoading={isVideoLoaded} />
+            <BinceEmblem className="loader-emblem" style={{
+              display: isVideoLoaded ? `none` : ``
+            }} />
+            <Video
+              className=""
+              id={vimeo_video_id}
+              isThumbnail={false}
+              setVideoLoaded={setVideoLoaded}
+            />
+          </div>
         </section>
 
-      </div>
+        <section className="content-wrapper section__video-descritpion">
+          <h2>Video description</h2>
+          <div dangerouslySetInnerHTML={{ __html: description.html }}></div>
+        </section>
+
+        <Pagination next={"some next video"} prev={"some prev video.."} />
+
+      </article>
     </Layout>
   )
 }
@@ -48,6 +76,7 @@ export const query = graphql`
           html
         }
         vimeo_video_id
+        date
       }      
       url
       tags
