@@ -48,10 +48,9 @@ export const query = graphql`
           html
         }
         vimeo_video_id
-      }
-      uid
-      type
+      }      
       url
+      tags
       prismicId
     }
   }

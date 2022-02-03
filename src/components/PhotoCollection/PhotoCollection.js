@@ -4,7 +4,7 @@ import './PhotoCollection.css'
 
 import Animated from "react-mount-animation"
 
-import { useGalleryContext } from '../../hooks/useGalleryContext'
+import { useCollectionContext } from '../../hooks/useCollectionContext'
 import { useAppContext } from '../../hooks/useAppContext'
 
 import GallerySlider from '../GallerySlider/GallerySlider'
@@ -16,7 +16,7 @@ const PhotoCollection = () => {
     columns,
     currentIndex, setCurrentIndex,
     isSliderMounted, setIsSliderMounted
-  } = useGalleryContext()
+  } = useCollectionContext()
 
 
   const handleOpenImage = imageIndex => {

@@ -7,7 +7,7 @@ import Seo from "../components/Seo/Seo"
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 import CollectionNav from '../components/CollectionNav/CollectionNav'
 import PhotoCollection from '../components/PhotoCollection/PhotoCollection'
-import { GalleryProvider } from "../context/GalleryContext"
+import { CollectionProvider } from "../context/CollectionContext"
 
 const GalleryPage = ({ data }) => {
   const { gallery, page_title, page_text, max_columns_count } = data.prismicGalleryPage.data
@@ -17,7 +17,7 @@ const GalleryPage = ({ data }) => {
       <Seo title="Photo" />
       <div className="page no-hero">
 
-        <GalleryProvider items={gallery} maxColumns={max_columns_count}>
+        <CollectionProvider items={gallery} maxColumns={max_columns_count}>
 
           {/* Gallery navigation with categories */}
           <section className="content-wrapper">
@@ -40,7 +40,7 @@ const GalleryPage = ({ data }) => {
             <div className="page-content" dangerouslySetInnerHTML={{ __html: page_text.html }}></div>
           </section>
 
-        </GalleryProvider>
+        </CollectionProvider>
       </div>
     </Layout>
   )

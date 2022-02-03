@@ -1,0 +1,42 @@
+TODO blog
+  - blog post
+  - blog listing
+  - tags (random gradients per tag)
+  - pagination for listing pages
+  - table of content
+  - progress bar
+  - reading time
+  - scroll to top
+  - author page
+  - [optional] comments (discuss)
+  
+TODO collections
+  - [video] add filtering by tag to collection nav [done]
+  - remove category field from photo_gallery custom_types
+  - animate sorting
+  - show poster and/or loader before video is loaded [done] (poster could still be as background with low opacity)
+    
+        TODO single video page
+          - source content  
+          - set styles
+          - add pagination buttons
+
+TODO slider
+  - intersection observer (change slider opacity on scroll)
+  - (Photo Gallery) create copy link function & hover labels for all buttons when slider is mounted
+
+TODO homepage
+  - hero content
+  - call to action sourced
+  - scroll to content on click hero button
+
+TODO SEO
+  - add SEO fields in every custom type
+
+TODO general
+  - install sass
+  - introduce OOCSS methodology
+
+
+TODO issues
+  - homepage slider is not spanning entire width on some slides (previous to video slide)

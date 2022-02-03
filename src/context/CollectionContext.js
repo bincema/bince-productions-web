@@ -4,16 +4,16 @@ import { useAppContext } from '../hooks/useAppContext'
 
 import { sleep } from '../utils/helpers'
 
-export const GalleryContext = createContext()
+export const CollectionContext = createContext()
 
-export const GalleryProvider = ({ children, items, maxColumns }) => {
+export const CollectionProvider = ({ children, items, maxColumns }) => {
   const { params } = useURLParamsContext()
   const { setEnableScroll, setHeaderVisible } = useAppContext()
 
   // default columnCount to 4 columns if the value is not in range [1..6]
   const maxColumnsCount = maxColumns >= 1 && maxColumns <= 6 ? maxColumns : 1
 
-  const [galleryItems, setGalleryItems] = useState(items)
+  const [collectionItems, setCollectionItems] = useState(items)
   const [filteredItems, setFilteredItems] = useState([])
   const [columns, setColumns] = useState(maxColumnsCount)
   const [categories, setCategories] = useState([])
@@ -21,15 +21,21 @@ export const GalleryProvider = ({ children, items, maxColumns }) => {
   const [isSliderMounted, setIsSliderMounted] = useState(false)
 
   const switchCategory = async category => {
-    const filtered = galleryItems.filter(item => item.category === category)
+    let filtered
+    if (collectionItems[0].tags) {
+      filtered = collectionItems.filter(item => item.tags.some(tag => tag === category))
+    } else {
+      filtered = collectionItems.filter(item => item.category === category)
+    }
     await sleep(500)
+
     setFilteredItems(filtered)
   }
 
-  const resetGallery = () => setFilteredItems(galleryItems)
+  const resetCollection = () => setFilteredItems(collectionItems)
 
   const showPortfolio = () => {
-    const portfolioItems = galleryItems.filter(item => item.include_in_portfolio === true)
+    const portfolioItems = collectionItems.filter(item => item.include_in_portfolio === true || item.data.include_in_reels_ === true)
     setFilteredItems(portfolioItems)
   }
 
@@ -56,9 +62,19 @@ export const GalleryProvider = ({ children, items, maxColumns }) => {
   }
 
   useEffect(() => {
-    setFilteredItems(galleryItems)
-    const categoryList = galleryItems.map(item => item.category)
-    const categorySet = new Set(categoryList)
+    setFilteredItems(collectionItems)
+    let categorySet
+
+    if (collectionItems[0].tags) {
+      // use tags
+      const tagsList = collectionItems.map(item => item.tags).flat()
+      categorySet = new Set(tagsList)
+    } else {
+      // use categories
+      const categoryList = collectionItems.map(item => item.category)
+      categorySet = new Set(categoryList)
+    }
+
     setCategories([...categorySet].sort())
 
   }, [])
@@ -67,20 +83,20 @@ export const GalleryProvider = ({ children, items, maxColumns }) => {
   }, [params])
 
   return (
-    <GalleryContext.Provider value={{
+    <CollectionContext.Provider value={{
       filteredItems,
       columns,
       categories,
-      switchCategory,
-      resetGallery,
-      showPortfolio,
       currentIndex,
-      setCurrentIndex,
       isSliderMounted,
+      switchCategory,
+      resetCollection,
+      showPortfolio,
+      setCurrentIndex,
       setIsSliderMounted
     }}>
       {children}
-    </GalleryContext.Provider>
+    </CollectionContext.Provider>
   )
 }
 

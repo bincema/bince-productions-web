@@ -1,24 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'gatsby'
+import Animated from 'react-mount-animation'
+import { useCollectionContext } from '../../hooks/useCollectionContext'
+
+import Video from '../Video/Video'
+import { isBrowser } from '../../utils/helpers'
+import BinceEmblem from '../../assets/svg/bince-emblem.svg'
+
 import '../PhotoCollection/PhotoCollection.css'
 import './VideoCollection.css'
 
-import Video from '../Video/Video'
-import { useGalleryContext } from '../../hooks/useGalleryContext'
-
 const PhotoCollection = () => {
-  const { filteredItems: galleryItems, columns } = useGalleryContext()
+  const { filteredItems: collectionItems, columns } = useCollectionContext()
+  const [isVideoLoaded, setVideoLoaded] = useState(false)
 
-  if (!galleryItems) return
+  if (!collectionItems) return
 
-  console.log(galleryItems)
   return (
     <div className="collection">
       <ul className={`collection__list columns-${columns}`}>
-        {galleryItems && galleryItems.map((item, i) => (
+        {collectionItems && collectionItems.map((item, i) => (
           <li className="collection__list-item collection__list-item--video" key={i}>
-            <Video className="collection__video" id={item.data.vimeo_video_id} />
-            <div className="collection__list-item-overlay"></div>
-            <span className="collection__list-item-title">{item.data.title.text}</span>
+            <Link
+              className="collection__list-item-link"
+              to={item.url}
+            >
+              <Video
+                className="collection__video"
+                id={item.data.vimeo_video_id}
+                setVideoLoaded={setVideoLoaded}
+              />
+              <Loader isLoading={isVideoLoaded} />
+              <BinceEmblem className="loader-emblem" style={{ animationDelay: `${i * 250}ms` }} />
+              {isVideoLoaded && (
+                <>
+                  <div className="collection__list-item-overlay"></div>
+                  <span className="collection__list-item-title">{item.data.title.text}</span>
+                </>
+              )}
+            </Link>
           </li>
         ))}
       </ul>
@@ -27,3 +47,40 @@ const PhotoCollection = () => {
 }
 
 export default PhotoCollection
+
+const Loader = ({ isLoading }) => {
+  const [dots, setDots] = useState(0)
+
+  const addDots = () => {
+    if (dots < 3) {
+      setDots(prev => prev + 1)
+    } else {
+      setDots(0)
+    }
+  }
+
+  useEffect(() => {
+    console.log('effect')
+    if (!isBrowser) return
+    const interval = window.setTimeout(() => {
+      addDots()
+    }, 500)
+
+    return () => window.clearTimeout(interval)
+  })
+
+  return (
+    <Animated.div
+      show={!isLoading}
+      className={`loader`}
+      unmountAnim={`
+        0 % { opacity: 1 }
+        100 % { opacity: 0 }
+      `}
+    >
+      Loading Video{Array(dots).fill('.').map(dot => (
+        <span className="loader-dot">.</span>
+      ))}
+    </Animated.div>
+  )
+}

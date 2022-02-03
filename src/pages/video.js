@@ -7,28 +7,29 @@ import Seo from "../components/Seo/Seo"
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 import CollectionNav from '../components/CollectionNav/CollectionNav'
 import VideoCollection from '../components/VideoCollection/VideoCollection'
-import { GalleryProvider } from "../context/GalleryContext"
+import { CollectionProvider } from "../context/CollectionContext"
 
 const GalleryPage = ({ data }) => {
   const { page_title, page_text, max_columns_count } = data.prismicVideoGallery.data
-  const galleryItems = data.allPrismicVideo.nodes
+  const collectionItems = data.allPrismicVideo.nodes
 
   return (
     <Layout>
       <Seo title="Video" />
       <div className="page no-hero">
 
-        <GalleryProvider items={galleryItems} maxColumns={max_columns_count}>
+        <CollectionProvider items={collectionItems} maxColumns={max_columns_count}>
 
           {/* Gallery navigation with categories */}
           <section className="content-wrapper">
             <AccentHeader>
               {page_title.text}
             </AccentHeader>
-            {/* <CollectionNav
+            <CollectionNav
               portfolio={true}
               services={true}
-            /> */}
+              portfolioLabel="Reels"
+            />
           </section>
 
           {/* Main gallery collection */}
@@ -41,7 +42,7 @@ const GalleryPage = ({ data }) => {
             <div className="page-content" dangerouslySetInnerHTML={{ __html: page_text.html }}></div>
           </section>
 
-        </GalleryProvider>
+        </CollectionProvider>
       </div>
     </Layout>
   )
@@ -67,6 +68,7 @@ export const query = graphql`
       nodes {
         tags
         _previewable
+        url
         data {
           category
           description {

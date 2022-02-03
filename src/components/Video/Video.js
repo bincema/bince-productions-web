@@ -2,7 +2,7 @@ import React from 'react'
 import './Video.css'
 import Vimeo from '@u-wave/react-vimeo'
 
-const Video = ({ className, embedLink = '', id = '' }) => {
+const Video = ({ className, embedLink, id, setVideoLoaded }) => {
 
   const videoLink = embedLink !== '' ? embedLink : `https://player.vimeo.com/video/${id}`
 
@@ -20,6 +20,7 @@ const Video = ({ className, embedLink = '', id = '' }) => {
       showTitle={false}
       showByline={false}
       loop
+      onLoaded={() => setVideoLoaded(true)}
     />
   )
 }
@@ -29,4 +30,5 @@ export default Video
 Video.defaultProps = {
   embedLink: '',
   id: '',
+  setVideoLoaded: () => { }
 }
