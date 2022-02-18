@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import './PhotoCollection.css'
+import './PhotoCollection.scss'
 
 import Animated from "react-mount-animation"
 

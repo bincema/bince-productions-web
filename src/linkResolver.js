@@ -1,10 +1,10 @@
 exports.linkResolver = (doc) => {
   // URL for a category type
-  if (doc.type === 'gallery_page') {
+  if (doc.type === 'photo_gallery_page') {
     return `/${doc.uid}`
   }
 
-  if (doc.type === 'video_gallery') {
+  if (doc.type === 'video_gallery_page') {
     return `/${doc.uid}`
   }
 
@@ -18,6 +18,10 @@ exports.linkResolver = (doc) => {
 
   if (doc.type === 'blog_listing') {
     return `/blog`
+  }
+
+  if (doc.type === 'contact_page') {
+    return `/contact`
   }
 
   // Backup for all other types

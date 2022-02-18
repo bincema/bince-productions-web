@@ -1,0 +1,83 @@
+button {
+  background: none;
+  font-family: iherit;
+}
+
+.btn {
+  --color: #fff;
+  --font: #444;
+
+  padding: 18px 32px;
+  border-radius: 5px;
+  background: var(--color);
+  border: 3px solid var(--color);
+  color: var(--font);
+  transition: transform .2s;
+  will-change: transform;
+  margin: 20px 0;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    margin-right: 24px;
+  }
+
+  &-hero {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+    text-shadow: 0 0 6px rgba(0, 0, 0, .6);
+  }
+
+  &__primary {
+    --font: #444;
+  }
+
+  &__secondary {
+    --font: #fff;
+    background: rgba(36, 36, 36, 0.5);
+  }
+
+  &__call-to-action {
+    --font: rgb(255, 255, 255);
+    --color: var(--color-accent);
+
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.btn-link {
+  background: none;
+  padding: 0;
+  color: var(--color-accent);
+}
+
+.btn-nav {
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-scroll-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+
+  padding: 10px;
+  cursor: pointer;
+
+  transition: transform .3s;
+
+  &:hover {
+    transform: translateY(4px);
+  }
+}
+

@@ -6,7 +6,6 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  padding-block: 60px;
   background: var(--bg-color-primary);
 }
 
@@ -40,4 +39,8 @@
 .section__video-descritpion {
   margin-top: 60px;
   margin-bottom: 60px;
+}
+
+.page-header {
+  margin-bottom: 50px;
 }

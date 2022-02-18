@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../../assets/svg/accent-header-icon.svg'
-import './AccentHeader.css'
+import './AccentHeader.scss'
 
 
 const AccentHeader = ({ children }) => {

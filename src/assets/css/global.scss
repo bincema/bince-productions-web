@@ -7,13 +7,14 @@
 
   --bg-color-primary: rgb(22, 22, 22);
   --bg-color-secondary: rgb(43, 43, 43);
-
+    
   --color-accent: rgb(236, 142, 0);
 
-  --gutter-sm: 16px;
-  --gutter-md: 32px;
-  --gutter-lg: 48px;
-  --gutter-xl: 64px;
+  --spacing-block-section: 80px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -44,5 +45,26 @@ img {
 .link {
   text-decoration: none;
   color: var(--color-accent);
-  font-weight: 700;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icon {
+  font-size: 120%;
+  margin-right: 5px;
+}
+
+.text-center {
+  text-align: center;
 }

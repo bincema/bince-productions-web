@@ -1,7 +1,10 @@
 import React from 'react'
-import { GatsbyImage, getImage, Placeholder } from "gatsby-plugin-image"
+import { Link } from 'gatsby'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Parallax } from 'react-scroll-parallax'
 import Video from '../Video/Video'
+import { FiChevronDown } from 'react-icons/fi'
+import kebabCase from 'lodash.kebabcase'
 
 import {
   CarouselProvider,
@@ -9,12 +12,13 @@ import {
   Slide
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import './HeroSlider.css'
+import './HeroSlider.scss'
 
 
-const HeroSlider = ({ sliderData }) => {
+const HeroSlider = ({ sliderData, buttons }) => {
   let totalSlides = sliderData.length
 
+  console.log(buttons)
   return (
     <CarouselProvider
       totalSlides={totalSlides}
@@ -63,9 +67,20 @@ const HeroSlider = ({ sliderData }) => {
         </Slider>
         <div className="hero-content-wrapper">
           <div className="content-wrapper">
-            <h1>Explore The Image</h1>
-            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, magni ipsam. Laboriosam ducimus atque architecto.</p> */}
-            {/* <button className="btn">Portfolio</button> */}
+            <div className="btn-group">
+              {buttons.map((item, i) => (
+                <Link
+                  key={i}
+                  className={`btn btn-hero btn__${kebabCase(item.variant)}`}
+                  to={item.link.url}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="btn-scroll-down">
+              <FiChevronDown className="icon" />
+            </div>
           </div>
         </div>
       </Parallax>

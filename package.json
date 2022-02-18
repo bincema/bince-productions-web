@@ -9,6 +9,7 @@
     "@u-wave/react-vimeo": "^0.9.5",
     "babel-plugin-styled-components": "^2.0.2",
     "classnames": "^2.3.1",
+    "formik": "^2.2.9",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-image": "^2.5.2",
@@ -26,6 +27,7 @@
     "gatsby-source-prismic": "^5.2.5",
     "gatsby-transformer-sharp": "^4.4.0",
     "gsap": "^3.9.0",
+    "lodash.kebabcase": "^4.1.1",
     "prop-types": "^15.7.2",
     "pure-react-carousel": "^1.27.8",
     "react": "^17.0.1",
@@ -35,7 +37,8 @@
     "react-mount-animation": "^0.0.11",
     "react-scroll-parallax": "^2.4.2",
     "sass": "^1.49.7",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "prettier": "^2.4.1"

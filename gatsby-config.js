@@ -24,12 +24,13 @@ module.exports = {
         schemas: {
           "homepage": require('./custom_types/homepage.json'),
           "primary_navigation": require('./custom_types/primary_navigation.json'),
-          "gallery_page": require('./custom_types/gallery_page.json'),
-          "single_work_page": require('./custom_types/single_work_page.json'),
+          "photo_gallery_page": require('./custom_types/gallery_page.json'),
           "blog_listing": require('./custom_types/blog_listing.json'),
           "blog_post": require('./custom_types/blog_post.json'),
-          "video_gallery": require('./custom_types/video_gallery.json'),
+          "video_gallery_page": require('./custom_types/video_gallery.json'),
           "video": require('./custom_types/video.json'),
+          "contact_page": require('./custom_types/contact_page.json'),
+          "industry_types": require('./custom_types/industry_types.json'),
         }
       },
     },
@@ -46,6 +47,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     // {
     //   resolve: "gatsby-plugin-transition-link",
@@ -68,13 +70,13 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `gallery`,
-        path: `${__dirname}/static/gallery`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `gallery`,
+    //     path: `${__dirname}/static/gallery`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

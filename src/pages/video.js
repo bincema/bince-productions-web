@@ -1,16 +1,19 @@
 import React from "react"
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { PrismicRichText } from "@prismicio/react"
 
 import Layout from "../components/Layout/Layout"
 import Seo from "../components/Seo/Seo"
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 import CollectionNav from '../components/CollectionNav/CollectionNav'
 import VideoCollection from '../components/VideoCollection/VideoCollection'
+
 import { CollectionProvider } from "../context/CollectionContext"
 
-const GalleryPage = ({ data }) => {
-  const { page_title, page_text, max_columns_count } = data.prismicVideoGallery.data
+
+const VideoGalleryPage = ({ data }) => {
+  const { page_title, page_text, max_columns_count } = data.prismicVideoGalleryPage.data
   const collectionItems = data.allPrismicVideo.nodes
 
   return (
@@ -38,8 +41,8 @@ const GalleryPage = ({ data }) => {
           </section>
 
           {/* Page text content */}
-          <section className="content-wrapper">
-            <div className="page-content" dangerouslySetInnerHTML={{ __html: page_text.html }}></div>
+          <section className="content-wrapper section rich-text-content text-center">
+            <PrismicRichText field={page_text.richText} />
           </section>
 
         </CollectionProvider>
@@ -48,11 +51,11 @@ const GalleryPage = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(GalleryPage)
+export default withPrismicPreview(VideoGalleryPage)
 
 export const query = graphql`
   query VideoGalleryQuery {
-    prismicVideoGallery {
+    prismicVideoGalleryPage {
       _previewable
       data {
         max_columns_count
@@ -60,7 +63,7 @@ export const query = graphql`
           text
         }
         page_text {
-          html
+          richText
         }
       }
     }

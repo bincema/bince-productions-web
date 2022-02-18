@@ -2,6 +2,8 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
+import { TiArrowBack } from 'react-icons/ti'
+
 import Layout from '../components/Layout/Layout'
 import Post from '../components/Blog/Post/Post'
 
@@ -38,10 +40,14 @@ const PostTemplate = ({ data }) => {
   return (
     <Layout>
       <div className="page no-hero">
-        <div className="back">
-          <Link to="/blog">back to list</Link>
-        </div>
-        <Post post={post} />
+        <section className="content-wrapper">
+          <header className="page-header">
+            <Link className="link" to="/blog"><TiArrowBack className="icon" />Back to listing</Link>
+          </header>
+        </section>
+        <section className="content-wrapper">
+          <Post post={post} />
+        </section>
       </div>
       {/* next/prev post  */}
     </Layout>

@@ -13,9 +13,9 @@ const Header = () => {
       className="top-header"
       show={headerVisible}
       mountAnim={` 
-          0% {opacity: 0}
-          100% {opacity: 1}
-      `}
+      0% {opacity: 0}
+      100% {opacity: 1}
+  `}
       time={0.3}
     >
       <div className="content-box">

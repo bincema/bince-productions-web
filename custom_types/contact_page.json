@@ -1,0 +1,182 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Document Display Name"
+      }
+    },
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Page Title"
+      }
+    },
+    "page_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label": "Page Text"
+      }
+    },
+    "social_media": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link",
+              "select": null
+            }
+          },
+          "display": {
+            "type": "Boolean",
+            "config": {
+              "placeholder_false": "Hidden",
+              "placeholder_true": "Visible",
+              "default_value": true,
+              "label": "Display"
+            }
+          }
+        },
+        "label": "Social Media"
+      }
+    },
+    "phone_number": {
+      "type": "Text",
+      "config": {
+        "label": "Phone Number"
+      }
+    },
+    "phone_number_2": {
+      "type": "Text",
+      "config": {
+        "label": "Phone Number 2"
+      }
+    },
+    "email_address": {
+      "type": "Text",
+      "config": {
+        "label": "Email Address"
+      }
+    },
+    "email_address_2": {
+      "type": "Text",
+      "config": {
+        "label": "Email Address 2"
+      }
+    },
+    "form_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading2",
+        "label": "Form Title"
+      }
+    },
+    "form_submit_button_text": {
+      "type": "Text",
+      "config": {
+        "label": "Form Submit Button Text"
+      }
+    },
+    "enable_form_field__first_name": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (First Name)"
+      }
+    },
+    "enable_form_field__last_name": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Last Name)"
+      }
+    },
+    "enable_form_field__phone": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Phone Number)"
+      }
+    },
+    "enable_form_field__email": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Email Address)"
+      }
+    },
+    "enable_form_field__message": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Message)"
+      }
+    },
+    "enable_form_field__idustry": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Select Idustry)"
+      }
+    },
+    "industries": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "industry_types"
+        ],
+        "label": "Industries"
+      }
+    },
+    "enable_form_field__company_name": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Company Name)"
+      }
+    },
+    "enable_form_field__budget": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Budget)"
+      }
+    },
+    "enable_form_field__website": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Disabled",
+        "placeholder_true": "Enabled",
+        "default_value": true,
+        "label": "Enable Form Field (Website Address)"
+      }
+    }
+  }
+}

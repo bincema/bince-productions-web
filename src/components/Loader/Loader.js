@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Animated from 'react-mount-animation'
 import { isBrowser } from '../../utils/helpers'
 
-import './Loader.css'
+import './Loader.scss'
 
 const Loader = ({ isLoading }) => {
   const [dots, setDots] = useState(0)

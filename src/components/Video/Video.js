@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './Video.css'
+import './Video.scss'
 import Vimeo from '@u-wave/react-vimeo'
 
 const Video = ({ className, embedLink, id, setVideoLoaded, isThumbnail, autoplay }) => {

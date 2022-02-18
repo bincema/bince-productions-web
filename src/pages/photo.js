@@ -8,9 +8,10 @@ import AccentHeader from '../components/AccentHeader/AccentHeader'
 import CollectionNav from '../components/CollectionNav/CollectionNav'
 import PhotoCollection from '../components/PhotoCollection/PhotoCollection'
 import { CollectionProvider } from "../context/CollectionContext"
+import { PrismicRichText } from "@prismicio/react"
 
-const GalleryPage = ({ data }) => {
-  const { gallery, page_title, page_text, max_columns_count } = data.prismicGalleryPage.data
+const PhotoGalleryPage = ({ data }) => {
+  const { gallery, page_title, page_text, max_columns_count } = data.prismicPhotoGalleryPage.data
 
   return (
     <Layout>
@@ -36,8 +37,8 @@ const GalleryPage = ({ data }) => {
           </section>
 
           {/* Page text content */}
-          <section className="content-wrapper">
-            <div className="page-content" dangerouslySetInnerHTML={{ __html: page_text.html }}></div>
+          <section className="content-wrapper section rich-text-content text-center">
+            <PrismicRichText field={page_text.richText} />
           </section>
 
         </CollectionProvider>
@@ -46,11 +47,11 @@ const GalleryPage = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(GalleryPage)
+export default withPrismicPreview(PhotoGalleryPage)
 
 export const query = graphql`
   query GalleryQuery {
-    prismicGalleryPage {
+    prismicPhotoGalleryPage {
       _previewable
       id
       data {
@@ -58,7 +59,7 @@ export const query = graphql`
           text
         }
         page_text {
-          html
+          richText
         }
         max_columns_count
         gallery {

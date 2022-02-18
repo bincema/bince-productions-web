@@ -6,11 +6,10 @@ import {
   CarouselProvider,
   Slider,
   Slide,
-  ButtonNext, ButtonBack,
-  CarouselContext
+  ButtonNext, ButtonBack
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import './GallerySlider.css'
+import './GallerySlider.scss'
 
 
 const GallerySlider = ({ sliderData, handleClose, currentIndex }) => {
@@ -45,15 +44,21 @@ const GallerySlider = ({ sliderData, handleClose, currentIndex }) => {
         })}
 
       </Slider>
+      {/* <div className="image-control-group"> */}
+      {/* <span className="image-control-btn-label">Close</span> */}
       <button
         className="image-control-btn close"
         onClick={() => handleClose()}
       ><GrFormClose className="icon" /></button>
+      {/* </div> */}
 
       {/* TODO: style share button & add copy link fn */}
-      <button
-        className="image-control-btn share"
-      ><RiShareFill className="icon" /></button>
+      {/* <div className="image-control-group share">
+        <span className="image-control-btn-label">Share</span>
+        <button
+          className="image-control-btn"
+        ><RiShareFill className="icon" /></button>
+      </div> */}
 
       <ButtonBack
         className="image-control-btn prev"

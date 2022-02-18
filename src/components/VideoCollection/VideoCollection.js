@@ -6,8 +6,8 @@ import Video from '../Video/Video'
 import BinceEmblem from '../../assets/svg/bince-emblem.svg'
 import Loader from '../Loader/Loader'
 
-import '../PhotoCollection/PhotoCollection.css'
-import './VideoCollection.css'
+import '../PhotoCollection/PhotoCollection.scss'
+import './VideoCollection.scss'
 
 const PhotoCollection = () => {
   const { filteredItems: collectionItems, columns } = useCollectionContext()

@@ -4,7 +4,7 @@ import { PrismicLink } from '@prismicio/react'
 
 import { RiCameraLensFill } from 'react-icons/ri'
 
-import './Nav.css'
+import './Nav.scss'
 
 const Nav = () => {
   const queryData = useStaticQuery(graphql`
@@ -20,6 +20,8 @@ const Nav = () => {
             link_label {
               text
             }
+            display
+            render_as
           }
         }
       }
@@ -35,7 +37,7 @@ const Nav = () => {
     /* Close the drawer when the user clicks outside of it */
     const closeDrawer = event => {
       if (drawerRef.current && drawerRef.current.contains(event.target)) {
-        return;
+        return
       }
 
       toggleDrawer(false);
@@ -53,21 +55,25 @@ const Nav = () => {
           <RiCameraLensFill className="icon" />
         </button>
 
-        <ul ref={drawerRef} className={`nav-list ${openDrawer ? 'open-drawer' : null}`}>
+        <ul ref={drawerRef} className={`nav-list ${openDrawer ? 'open-drawer' : ''}`}>
           {
             // eslint-disable-next-line array-callback-return
-            navItems.map((item, i) => (
-              <li key={i} className="nav-item">
-                <PrismicLink
-                  field={item.link}
-                  onClick={() => toggleDrawer(false)}
-                  activeClassName="active"
-                  className="nav-link"
-                >
-                  {item.link_label.text}
-                </PrismicLink>
-              </li>
-            ))}
+            navItems.map((item, i) => {
+              if (!item.display) return
+              return (
+                // TODO return button if render_as === true
+                <li key={i} className={`nav-item ${item.render_as ? 'btn btn-nav btn__call-to-action' : ''}`}>
+                  <PrismicLink
+                    field={item.link}
+                    onClick={() => toggleDrawer(false)}
+                    activeClassName="active"
+                    className="nav-link"
+                  >
+                    {item.link_label.text}
+                  </PrismicLink>
+                </li>
+              )
+            })}
         </ul>
       </nav>
     </div>

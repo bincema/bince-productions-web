@@ -1,0 +1,151 @@
+.slice-container {
+  min-height: 40vh;
+  display: block;
+  padding: var(--spacing-block-section) 0;
+
+  &:nth-child(even) {
+    background: var(--bg-color-secondary);
+  }
+
+  & .btn {
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+// SLICES
+
+// prefix
+.slice {
+  text-align: center;
+
+  & .title {
+    font-size: 3rem;
+    margin-top: 10px;
+  }
+
+  & .title-secondary {
+    font-size: 2rem;
+  }
+
+  & .headline {
+    color: var(--color-accent);
+  }
+
+  // CALL TO ACTION
+
+  &__call-to-action {
+    text-align: center;
+
+    & .image {
+      margin: 20px 0;
+      max-height: 400px;
+      background-size: contain;
+      height: 100%;
+    }
+  }
+
+
+  // ALTERNATE GRID
+
+  &__alternate-grid {
+    text-align: center;
+
+    & .description p {
+      font-size: 1.2rem;
+    }
+
+    & .grid-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: min-content;
+      margin-top: 60px;
+      
+      & .image { 
+        margin: 20px 0;
+        grid-area: image;
+      }
+
+      &.image-left {
+        grid-template-areas: 'image content';
+      }
+
+      &.image-right {
+        grid-template-areas: 'content image';
+      }
+    }
+
+    & .grid {
+      display: grid;
+      grid-area: content;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: min-content;
+      margin: 40px 0;
+      gap: 40px;
+    }
+
+    & .grid-item {
+      text-align: left;
+    }
+    
+    & .grid-icon {
+      max-height: 80px;
+      height: 100%;
+      align-self: flex-start;
+      margin: 20px 0;
+    }
+  }
+
+
+  // VIDEO HIGHLIGHTS
+  &__video-highlights {
+
+    & .video-wrapper {
+      margin: 80px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // CUSTOMER LOGOS
+
+  &__customer-logos {
+    & .flex {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      margin: 60px 0;
+    }
+
+    & .flex-item {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    & .logo {
+      filter: grayscale(100%);
+      max-height: 100px;
+      height: 100%;
+      width: unset;
+
+      margin-right: 20px;
+
+      transition: filter .3s;
+
+      &:hover {
+        filter: grayscale(0);
+      }
+      
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

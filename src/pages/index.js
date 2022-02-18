@@ -1,7 +1,9 @@
 import * as React from "react"
 import { graphql } from 'gatsby'
+import { SliceZone } from "@prismicio/react"
 import { ParallaxProvider } from "react-scroll-parallax"
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { components } from '../slices'
 
 import Layout from "../components/Layout/Layout"
 import Seo from "../components/Seo/Seo"
@@ -9,21 +11,25 @@ import HeroSlider from '../components/HeroSlider/HeroSlider'
 import AccentHeader from '../components/AccentHeader/AccentHeader'
 
 const IndexPage = ({ data }) => {
+  if (!data) return null
+  const doc = data.prismicHomepage.data
+  console.log(doc)
 
   return (
     <Layout>
-      <Seo title={data.prismicHomepage.data.page_title.text} />
+      <Seo title={doc.page_title.text} />
       <ParallaxProvider>
-        <HeroSlider sliderData={data.prismicHomepage.data.hero_slider} />
+        <HeroSlider sliderData={doc.hero_slider} buttons={doc.hero_buttons} />
       </ParallaxProvider>
       <div className="page">
-        <section className="page-section content-wrapper">
+        <section className="page-section content-wrapper section">
 
           <AccentHeader>
-            {data.prismicHomepage.data.primary_heading.text}
+            {doc.primary_heading.text}
           </AccentHeader>
-          <div className="rich-text-content" dangerouslySetInnerHTML={{ __html: data.prismicHomepage.data.text_content.html }}></div>
+          <div id="content" className="rich-text-content text-center" dangerouslySetInnerHTML={{ __html: doc.text_content.html }}></div>
         </section>
+        <SliceZone slices={doc.body1} components={components} />
       </div>
     </Layout>
   )
@@ -45,6 +51,13 @@ export const query = graphql`
         text_content {
           html
         }
+        hero_buttons {
+          link {
+            url
+          }
+          label
+          variant
+        }
         hero_slider {
           content_type
           video_link {
@@ -58,6 +71,15 @@ export const query = graphql`
           slide_title {
             text
           }
+        }
+        body1 {
+          ... on PrismicSliceType {
+            slice_type
+          }
+          ...HomepageDataBody1AlternateGrid
+          ...HomepageDataBody1CallToAction
+          ...HomepageDataBody1CustomerLogos
+          ...HomepageDataBody1VideoHighlights
         }
       }
     }

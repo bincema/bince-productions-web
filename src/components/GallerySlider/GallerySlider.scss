@@ -81,6 +81,13 @@
   border: none;
   font-size: 2rem;
   padding: 22px;
+
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.image-control-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .close {
@@ -92,6 +99,12 @@
   top: 47px;
   right: 0;
   font-size: 1.4rem;
+}
+
+.image-control-group {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
 }
 
 .next, .prev {
@@ -109,6 +122,8 @@
   transform: translate(-50%, -50%);
   color: #fff;
 }
+
+
 
 .image-control-btn .icon > polyline,
 .image-control-btn .icon > path { stroke: #ffffff; }

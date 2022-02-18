@@ -5,10 +5,12 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import '../../assets/css/normalize.css'
-import '../../assets/css/global.css'
-import '../../assets/css/button.css'
+import '../../assets/css/index.scss'
+import '../../assets/css/global.scss'
+import '../../assets/css/button.scss'
+import '../../assets/css/contact.scss'
 
-import './Layout.css'
+import './Layout.scss'
 import { useAppContext } from "../../hooks/useAppContext"
 
 const Layout = ({ children }) => {

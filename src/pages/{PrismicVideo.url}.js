@@ -15,7 +15,12 @@ const { log, error } = console
 
 const VideoPage = ({ data }) => {
   const { title, description, vimeo_video_id, date } = data.prismicVideo.data
-  const { tags } = data.prismicVideo
+  const { tags, id: currentNodeId } = data.prismicVideo
+
+  const currentNode = data.allPrismicVideo.edges.find(item => item.node.id === currentNodeId)
+  const { next, previous } = currentNode
+
+
 
   const [isVideoLoaded, setVideoLoaded] = useState(false)
 
@@ -54,7 +59,7 @@ const VideoPage = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: description.html }}></div>
         </section>
 
-        <Pagination next={"some next video"} prev={"some prev video.."} />
+        <Pagination next={next} prev={previous} />
 
       </article>
     </Layout>
@@ -65,6 +70,32 @@ export default withPrismicPreview(VideoPage)
 
 export const query = graphql`
   query VideoQuery($id: String) {
+      allPrismicVideo {
+      edges {
+        node {
+          id
+        }
+        next {
+          url
+          data {
+            title {
+              text
+            }
+            date
+          }
+          tags
+        }
+        previous {
+          url
+          data {
+            title {
+              text
+            }
+          }
+          tags
+        }
+      }
+    }
     prismicVideo(id: { eq: $id }) {
       _previewable
       id

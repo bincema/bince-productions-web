@@ -1,5 +1,5 @@
 import React from 'react';
-import './CollectionNav.css';
+import './CollectionNav.scss';
 import { useCollectionContext } from '../../hooks/useCollectionContext'
 
 const CollectionNav = ({ portfolio, portfolioLabel, services }) => {

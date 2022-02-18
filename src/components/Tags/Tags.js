@@ -1,5 +1,5 @@
 import React from 'react'
-import './Tags.css'
+import './Tags.scss'
 
 
 const Tags = ({ tags, className }) => {
