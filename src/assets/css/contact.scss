@@ -2,16 +2,18 @@
   display: grid;
   grid-template-columns: repeat(2, min-content);
   grid-template-rows: repeat(2, min-content);
-  grid-template-areas: 
-    'title title'
-    'icon detail'
-  ;
+  grid-template-areas:
+    "title title"
+    "icon detail";
   width: 100%;
   white-space: nowrap;
+  text-align: center;
+  justify-content: center;
 }
 
 .contact-detail-title {
   grid-area: title;
+  margin-top: 3rem;
 }
 
 .contact-detail {

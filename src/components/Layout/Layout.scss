@@ -32,6 +32,12 @@
   padding-top: 190px;
 }
 
+.page-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .disable-scroll {
   overflow: hidden;
 }

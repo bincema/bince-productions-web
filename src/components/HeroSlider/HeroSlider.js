@@ -1,19 +1,15 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Parallax } from 'react-scroll-parallax'
-import Video from '../Video/Video'
-import { FiChevronDown } from 'react-icons/fi'
-import kebabCase from 'lodash.kebabcase'
+import { Parallax } from "react-scroll-parallax"
+import Video from "../Video/Video"
+import { FiChevronDown } from "react-icons/fi"
+import kebabCase from "lodash.kebabcase"
 
-import {
-  CarouselProvider,
-  Slider,
-  Slide
-} from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import './HeroSlider.scss'
-
+import { CarouselProvider, Slider, Slide } from "pure-react-carousel"
+import "pure-react-carousel/dist/react-carousel.es.css"
+import "./HeroSlider.scss"
+import ScrollIntoView from "react-scroll-into-view"
 
 const HeroSlider = ({ sliderData, buttons }) => {
   let totalSlides = sliderData.length
@@ -30,8 +26,8 @@ const HeroSlider = ({ sliderData, buttons }) => {
       <Parallax className="parallax-container" y={[-38, 35]} tagOuter="div">
         <Slider
           className="carousel--slider hero-slider"
-          classNameTray='hero-slider-tray'
-          classNameTrayWrap='hero-slider-tray-wrap'
+          classNameTray="hero-slider-tray"
+          classNameTrayWrap="hero-slider-tray-wrap"
         >
           {sliderData.map((item, i) => {
             const { video_link, slide_title, image, content_type } = item
@@ -41,20 +37,29 @@ const HeroSlider = ({ sliderData, buttons }) => {
               const currImg = getImage(image)
               return (
                 <Slide className="hero-slide" index={i} key={i}>
-                  <GatsbyImage className="slide-image" image={currImg} alt={image.alt} />
+                  <GatsbyImage
+                    className="slide-image"
+                    image={currImg}
+                    alt={image.alt}
+                  />
                 </Slide>
               )
             } else if (content_type === true) {
               if (!video_link.url) return null
 
               const posterStyles = {
-                backgroundImage: image.url ? `url(${image.url})` : '',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
+                backgroundImage: image.url ? `url(${image.url})` : "",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
               }
 
               return (
-                <Slide className="hero-slide" index={i} key={i} style={posterStyles}>
+                <Slide
+                  className="hero-slide"
+                  index={i}
+                  key={i}
+                  style={posterStyles}
+                >
                   <Video
                     className="vimeo-embed-player"
                     embedLink={video_link.url}
@@ -79,7 +84,9 @@ const HeroSlider = ({ sliderData, buttons }) => {
               ))}
             </div>
             <div className="btn-scroll-down">
-              <FiChevronDown className="icon" />
+              <ScrollIntoView selector="#first-content">
+                <FiChevronDown className="icon" />
+              </ScrollIntoView>
             </div>
           </div>
         </div>

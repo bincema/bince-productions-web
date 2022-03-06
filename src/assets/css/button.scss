@@ -3,16 +3,21 @@ button {
   font-family: iherit;
 }
 
+input[type="button"] {
+  font-family: inherit;
+}
+
 .btn {
   --color: #fff;
   --font: #444;
+  font-family: inherit;
 
   padding: 18px 32px;
   border-radius: 5px;
   background: var(--color);
   border: 3px solid var(--color);
   color: var(--font);
-  transition: transform .2s;
+  transition: transform 0.2s;
   will-change: transform;
   margin: 20px 0;
   text-decoration: none;
@@ -22,8 +27,8 @@ button {
   }
 
   &-hero {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, .3);
-    text-shadow: 0 0 6px rgba(0, 0, 0, .6);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   }
 
   &__primary {
@@ -38,7 +43,6 @@ button {
   &__call-to-action {
     --font: rgb(255, 255, 255);
     --color: var(--color-accent);
-
   }
 }
 
@@ -51,6 +55,8 @@ button {
   background: none;
   padding: 0;
   color: var(--color-accent);
+  border: none;
+  font-family: inherit;
 }
 
 .btn-nav {
@@ -74,10 +80,9 @@ button {
   padding: 10px;
   cursor: pointer;
 
-  transition: transform .3s;
+  transition: transform 0.3s;
 
   &:hover {
     transform: translateY(4px);
   }
 }
-
